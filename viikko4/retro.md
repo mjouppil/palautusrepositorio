@@ -1,4 +1,4 @@
-## Retrospective plans.
+## Retrospective Plans
 
 ### Start, Stop, Continue, More of, Less of Wheel:
 - 10-25 min.
