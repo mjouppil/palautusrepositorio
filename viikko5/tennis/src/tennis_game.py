@@ -47,12 +47,10 @@ class TennisGame:
             else:
                 score = score + "-"
                 temp_score = m_score2
-            if temp_score == 0:
-                score = score + "Love"
-            elif temp_score == 1:
-                score = score + "Fifteen"
-            elif temp_score == 2:
-                score = score + "Thirty"
-            elif temp_score == 3:
-                score = score + "Forty"
+            score = score + self._get_point_names(temp_score)
+        return score
+
+    def _get_point_names(self, m_score):
+        point_names = ["Love", "Fifteen", "Thirty", "Forty"]
+        score = point_names[m_score]
         return score
