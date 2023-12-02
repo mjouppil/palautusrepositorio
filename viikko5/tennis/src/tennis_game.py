@@ -12,30 +12,12 @@ class TennisGame:
             self.m_score2 = self.m_score2 + 1
 
     def get_score(self):
-        score = ""
-        temp_score = 0
-
         if self.m_score1 == self.m_score2:
             score = self._get_even_score(self.m_score1)
         elif self.m_score1 >= 4 or self.m_score2 >= 4:
             score = self._get_endgame_score(self.m_score1, self.m_score2)
         else:
-            for i in range(1, 3):
-                if i == 1:
-                    temp_score = self.m_score1
-                else:
-                    score = score + "-"
-                    temp_score = self.m_score2
-
-                if temp_score == 0:
-                    score = score + "Love"
-                elif temp_score == 1:
-                    score = score + "Fifteen"
-                elif temp_score == 2:
-                    score = score + "Thirty"
-                elif temp_score == 3:
-                    score = score + "Forty"
-
+            score = self._get_odd_score(self.m_score1, self.m_score2)
         return score
 
     def _get_even_score(self, m_score):
@@ -54,4 +36,23 @@ class TennisGame:
         state = "Advantage" if abs(difference) <= 1 else "Win for"
         player = "player1" if difference > 0 else "player2"
         score = " ".join([state, player])
+        return score
+
+    def _get_odd_score(self, m_score1, m_score2):
+        score = ""
+        temp_score = 0
+        for i in range(1, 3):
+            if i == 1:
+                temp_score = m_score1
+            else:
+                score = score + "-"
+                temp_score = m_score2
+            if temp_score == 0:
+                score = score + "Love"
+            elif temp_score == 1:
+                score = score + "Fifteen"
+            elif temp_score == 2:
+                score = score + "Thirty"
+            elif temp_score == 3:
+                score = score + "Forty"
         return score
