@@ -16,14 +16,7 @@ class TennisGame:
         temp_score = 0
 
         if self.m_score1 == self.m_score2:
-            if self.m_score1 == 0:
-                score = "Love-All"
-            elif self.m_score1 == 1:
-                score = "Fifteen-All"
-            elif self.m_score1 == 2:
-                score = "Thirty-All"
-            else:
-                score = "Deuce"
+            score = self._get_even_score(self.m_score1)
         elif self.m_score1 >= 4 or self.m_score2 >= 4:
             minus_result = self.m_score1 - self. m_score2
 
@@ -52,4 +45,15 @@ class TennisGame:
                 elif temp_score == 3:
                     score = score + "Forty"
 
+        return score
+
+    def _get_even_score(self, m_score):
+        if m_score == 0:
+            score = "Love-All"
+        elif m_score == 1:
+            score = "Fifteen-All"
+        elif m_score == 2:
+            score = "Thirty-All"
+        else:
+            score = "Deuce"
         return score
