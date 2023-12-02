@@ -21,12 +21,8 @@ class TennisGame:
         return score
 
     def _get_even_score(self, m_score):
-        if m_score == 0:
-            score = "Love-All"
-        elif m_score == 1:
-            score = "Fifteen-All"
-        elif m_score == 2:
-            score = "Thirty-All"
+        if m_score < 3:
+            score = "".join([self._get_point_names(m_score), "-All"])
         else:
             score = "Deuce"
         return score
