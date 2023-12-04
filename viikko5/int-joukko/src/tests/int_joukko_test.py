@@ -106,6 +106,7 @@ class TestIntJoukko(unittest.TestCase):
         toka = self.tee_joukko(2, 3, 4)
 
         tulos = IntJoukko.erotus(eka, toka)
+        print(tulos)
         vastauksen_luvut = tulos.to_int_list()
 
         odotettu = [1, 5, 6]
